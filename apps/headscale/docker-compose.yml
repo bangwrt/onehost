@@ -1,12 +1,11 @@
+version: '3.5'
 services:
-
   headscale:
-    image: headscale/headscale:0.25.1
-    container_name: headscale
-    restart: unless-stopped
-    command: serve
-    ports:
-      - '7000:8080'
+    image: headscale/headscale:latest
     volumes:
-      - './headscale-data:/var/lib/headscale'
-      - './headscale-config:/etc/headscale'
+      - ./config:/etc/headscale/
+      - ./data:/var/lib/headscale
+    ports:
+      - 7000:8080
+    command: serve
+    restart: unless-stopped
