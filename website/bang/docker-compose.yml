@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  web:
+    image: nginx:latest
+    container_name: bang-0newrt
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - ./www:/usr/share/nginx/html
+    restart: always
+
+networks:
+  default:
+    external: true
+    name: proxy_network
