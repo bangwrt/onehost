@@ -1,6 +1,7 @@
 version: '3.5'
 services:
   headscale:
+    container_name: onescale
     image: headscale/headscale:latest
     volumes:
       - ./config:/etc/headscale/
