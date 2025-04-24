@@ -2,13 +2,13 @@ version: '3.8'
 
 services:
   nginx-proxy-manager:
-    image: 'jc21/nginx-proxy-manager:latest'
+    image: 'docker.io/jc21/nginx-proxy-manager:latest'
     container_name: nginx-proxy-manager
     restart: unless-stopped
     ports:
-      - '80:80' # HTTP
-      - '443:443' # HTTPS
-      - '81:81' # Admin UI
+      - '80:80'
+      - '81:81'
+      - '443:443'
     environment:
       DB_MYSQL_HOST: "db"
       DB_MYSQL_PORT: 3306
@@ -20,7 +20,7 @@ services:
       - ./letsencrypt:/etc/letsencrypt
 
   nginx-proxy:
-    image: 'jc21/nginx-proxy'
+    image: 'docker.io/jc21/nginx-proxy'
     container_name: nginx-proxy
     restart: unless-stopped
     ports:
